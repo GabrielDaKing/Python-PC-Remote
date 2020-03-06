@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect
+import pyautogui
 import qrcode
 import keyboard
 import socket 
@@ -27,18 +28,71 @@ def play():
 def next():
 	keyboard.press_and_release('next track')
 	return redirect("/remote")
+
 @app.route('/volume_up')
 def volume_up():
 	keyboard.press_and_release('volume up')
 	return redirect("/remote")
+
 @app.route('/volume_down')
 def volume_down():
 	keyboard.press_and_release('volume down')
 	return redirect("/remote")
+
 @app.route('/mute')
 def mute():
 	keyboard.press_and_release('volume mute')
 	return redirect("/remote")
+
+@app.route('/up_left')
+def up_left():
+	pyautogui.move(-10,-10)
+	return redirect("/mouse_control")
+
+@app.route('/up')
+def up():
+	pyautogui.move(0,-10)
+	return redirect("/mouse_control")
+
+@app.route('/up_right')
+def up_right():
+	pyautogui.move(10,-10)
+	return redirect("/mouse_control")
+
+@app.route('/left')
+def left():
+	pyautogui.move(-10,0)
+	return redirect("/mouse_control")
+
+@app.route('/click')
+def click():
+	pyautogui.click()
+	return redirect("/mouse_control")
+
+@app.route('/right')
+def right():
+	pyautogui.move(10,0)
+	return redirect("/mouse_control")
+
+@app.route('/down_left')
+def down_left():
+	pyautogui.move(-10,10)
+	return redirect("/mouse_control")
+
+@app.route('/down')
+def down():
+	pyautogui.move(0,10)
+	return redirect("/mouse_control")
+
+@app.route('/down_right')
+def down_right():
+	pyautogui.move(10,10)
+	return redirect("/mouse_control")
+
+@app.route('/mouse_control')
+def mouse_control():
+
+	return render_template('mouse_control.html')
 
 @app.route('/')
 def connect():
