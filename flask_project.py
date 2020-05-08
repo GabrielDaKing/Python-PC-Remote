@@ -46,22 +46,22 @@ def mute():
 
 @app.route('/up_left')
 def up_left():
-	pyautogui.move(-10,-10)
+	pyautogui.move(-30,-30)
 	return redirect("/mouse_control")
 
 @app.route('/up')
 def up():
-	pyautogui.move(0,-10)
+	pyautogui.move(0,-30)
 	return redirect("/mouse_control")
 
 @app.route('/up_right')
 def up_right():
-	pyautogui.move(10,-10)
+	pyautogui.move(30,-30)
 	return redirect("/mouse_control")
 
 @app.route('/left')
 def left():
-	pyautogui.move(-10,0)
+	pyautogui.move(-30,0)
 	return redirect("/mouse_control")
 
 @app.route('/click')
@@ -71,22 +71,22 @@ def click():
 
 @app.route('/right')
 def right():
-	pyautogui.move(10,0)
+	pyautogui.move(30,0)
 	return redirect("/mouse_control")
 
 @app.route('/down_left')
 def down_left():
-	pyautogui.move(-10,10)
+	pyautogui.move(-30,30)
 	return redirect("/mouse_control")
 
 @app.route('/down')
 def down():
-	pyautogui.move(0,10)
+	pyautogui.move(0,30)
 	return redirect("/mouse_control")
 
 @app.route('/down_right')
 def down_right():
-	pyautogui.move(10,10)
+	pyautogui.move(30,30)
 	return redirect("/mouse_control")
 
 @app.route('/mouse_control')
