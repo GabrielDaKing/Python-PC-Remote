@@ -3,10 +3,8 @@ import pyautogui
 import qrcode
 import keyboard
 import socket 
-
-
 import os
-import threading
+from webbrowser import open_new_tab
 
 app = Flask(__name__)
 app.secret_key = "gabriel"
@@ -113,4 +111,5 @@ if __name__ == "__main__":
 	
 	img = qrcode.make('http://'+get_ip()+':25802/remote')
 	img.save('static/images/connect.png')
+	open_new_tab('http://'+get_ip()+':25802/')
 	app.run(debug=True,host='0.0.0.0',port=25802)
